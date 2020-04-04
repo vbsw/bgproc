@@ -9,9 +9,9 @@
 // i.e. a from terminal detached process.
 package bgproc
 
-// Process holds the name of the program to start and
-// its arguments. PID is set after calling Start and if
-// syscall.ForkExec has been used (not available on Windows).
+// Process holds the name of the program and its arguments.
+// PID is set after calling Start and if syscall.ForkExec
+// has been used (not available on Windows).
 type Process struct {
 	Name string
 	Args []string
@@ -19,14 +19,14 @@ type Process struct {
 }
 
 // New creates and returns a new instance of Process. The
-// parameter name is the absolute path to the program to execute.
+// parameter name is the absolute path to the program to start.
 func New(name string) *Process {
 	proc := new(Process)
 	proc.Name = name
 	return proc
 }
 
-// AddArg adds an argument for the program.
+// AddArg adds an argument to start the program with.
 func (proc *Process) AddArg(arg string) {
 	proc.Args = append(proc.Args, arg)
 }
