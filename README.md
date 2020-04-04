@@ -3,7 +3,7 @@
 [![GoDoc](https://godoc.org/github.com/vbsw/bgproc?status.svg)](https://godoc.org/github.com/vbsw/bgproc) [![Go Report Card](https://goreportcard.com/badge/github.com/vbsw/bgproc)](https://goreportcard.com/report/github.com/vbsw/bgproc) [![Stability: Experimental](https://masterminds.github.io/stability/experimental.svg)](https://masterminds.github.io/stability/experimental.html)
 
 ## About
-bgproc is a package for Go. bgproc starts a process in "background", i.e. a from command line detached process. bgproc is published on <https://github.com/vbsw/bgproc>.
+bgproc is a package for Go. bgproc starts a process in "background", i.e. a from terminal detached process. bgproc is published on <https://github.com/vbsw/bgproc>.
 
 ## Copyright
 Copyright 2020, Vitali Baumtrok (vbsw@mailbox.org).
@@ -22,7 +22,7 @@ bgproc is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 	)
 
 	func main() {
-		if len(os.Args) > 1 && os.Args == "--background" {
+		if len(os.Args) == 2 && os.Args[1] == "--background" {
 			progName, err := filepath.Abs(os.Args[0])
 
 			if err == nil {
@@ -39,3 +39,4 @@ bgproc is distributed in the hope that it will be useful, but WITHOUT ANY WARRAN
 
 - https://golang.org/doc/install
 - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+- https://dave.cheney.net/2013/10/12/how-to-use-conditional-compilation-with-the-go-build-tool
