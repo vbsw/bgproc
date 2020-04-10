@@ -1,16 +1,15 @@
-/*
- *          Copyright 2020, Vitali Baumtrok.
- * Distributed under the Boost Software License, Version 1.0.
- *     (See accompanying file LICENSE or copy at
- *        http://www.boost.org/LICENSE_1_0.txt)
- */
+//          Copyright 2020, Vitali Baumtrok.
+// Distributed under the Boost Software License, Version 1.0.
+//     (See accompanying file LICENSE or copy at
+//        http://www.boost.org/LICENSE_1_0.txt)
 
-package main
+package bgproc
 
 import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"time"
 )
 
 // Start starts the program as a from terminal detached process.
@@ -22,6 +21,8 @@ func (proc *Process) Start() error {
 		err = osCmd.Start()
 
 		if fileExists(scriptPath) {
+			// wait 1.5 seconds until script runs
+			time.Sleep(1500000000)
 			os.Remove(scriptPath)
 		}
 	}
